@@ -1,0 +1,6 @@
+see book 1 page: 3-29
+
+admin -> catalog -> url rewritemanagement
+
+use the table core_url_rewrite on the event ON_SAVE_AFTER.
+useful to avoid the old config.xml rewrite with preg_replace

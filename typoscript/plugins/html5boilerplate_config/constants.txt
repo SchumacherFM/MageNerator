@@ -1,0 +1,10 @@
+### Typoscript constants ###
+### HTML5BOILERPLATE ###
+
+[globalString = ENV:HTTP_HOST=magenerator.local]
+config.baseURL = http://magenerator.local
+[globalString = ENV:HTTP_HOST=www.magenerator.net]
+config.baseURL = http://magenerator.net
+[globalString = ENV:HTTP_HOST=magenerator.net]
+config.baseURL = http://magenerator.net
+[global]

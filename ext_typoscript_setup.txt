@@ -1,0 +1,21 @@
+config.tx_extbase{
+    persistence{
+        classes{
+
+            Tx_Extbase_Domain_Model_FrontendUser {
+                subclasses {
+                    Tx_Magenerator_FeUser = Tx_Magenerator_Domain_Model_FeUser
+
+          		}
+            }
+
+            Tx_Magenerator_Domain_Model_FeUser {
+                mapping {
+                    tableName = fe_users
+                    recordType = Tx_Magenerator_FeUser
+                }
+            }
+
+    	}
+    }
+}

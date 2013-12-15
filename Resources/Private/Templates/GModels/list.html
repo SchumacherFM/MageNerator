@@ -1,0 +1,159 @@
+{namespace mage=Tx_Magenerator_ViewHelpers}
+<f:layout name="Generator" />
+
+<f:section name="main">
+
+<f:flashMessages />
+
+	<f:render partial="General/headerDesc" arguments="{key:'models'}" />
+
+	<f:render partial="General/alert" />
+
+
+	<f:form class="form-horizontal generatorForm" controller="GModels" action="save" noCache="1" noCacheHash="1" pageType="510">
+
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="#tabMain" data-toggle="tab">Models:</a></li>
+	<f:for each="{sql}" key="tableName" as="columns">
+	    <li class="tab{tableName}"><a href="#tab{tableName}" data-toggle="tab">{tableName}</a></li>
+	</f:for>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane active" id="tabMain">
+
+		<div class="control-group">
+			<label class="control-label" for="uns_modelname">Model Name</label>
+			<div class="controls">
+				<mage:form.textfield class="input-xlarge aTooltip removeChars" title="Erlaubte Zeichen sind a-z, A-Z und 0-9 und der Unterstrich"
+					name="uns_modelname" id="uns_modelname" value="" placeholder="Model Name" maxlength="30"/>
+				<p class="help-block">Gib hier den Namen deines Models an. Wenn Du Unterordner miteinbeziehen
+					moechtest, dann nehme den Unterstrich z.B. Ordner_Ordner_Name.<br/>
+					Es werden einige Demo Methoden und Eigenschaften erstellt.
+				</p>
+			</div>
+		</div>
+
+		<div class="control-group">
+			<label class="control-label" for="uns_columncount">Spaltenanzahl</label>
+			<div class="controls">
+				<f:form.select class="input-medium" id="uns_columncount" name="uns_columncount" options="{modelsColumnCount}" />
+				<p class="help-block">Wenn Dein Model ein Resource Model bekommen soll mit einer Entitaet, dann gebe
+				hier bitte die Anzahl der Spalten an für deine MySQL Tabelle. Im naechsten Schritt kannst du die
+				Spalten Typen definieren.</p>
+			</div>
+		</div>
+
+
+		<div class="control-group">
+			<label class="control-label">&nbsp;</label>
+			<div class="controls">
+				<a class="btn btn-info createModelTab">Model erstellen</a>
+			</div>
+		</div>
+
+
+		<div class="control-group">
+			<label class="control-label" for="uns_columncount">Meine Blank Models</label>
+			<div class="controls">
+				<f:form.select class="input-xlarge" multiple="multiple" size="5" id="blankModels" name="blankModels"
+					options="{blankModels}" />
+				<a class="btn removeFromSelected" data-target="blankModels"><i class="icon-minus"></i></a>
+			</div>
+		</div>
+    </div><!-- end tabMain -->
+
+
+	<f:render partial="GModel/userModelTabs" arguments="{sql:sql,sqlColumnTypes:sqlColumnTypes}" />
+
+
+  </div>
+
+
+	<f:render partial="General/formActions" arguments="{formClassId:'form.generatorForm'}" />
+
+
+
+    <div class="tab-pane tabTemplate hide" id="tabX">
+		<h3>Spaltendefinition für Tabelle [###tableName###]</h3>
+        <a data-toggle="modal" href="#sqlColumnHelp" class="btn btn-mini">Launch demo modal</a>
+		<p>&nbsp;</p>
+		<table class="table table-condensed">
+		<thead>
+			<tr>
+				<th>Spaltenname</th>
+				<th>Typ</th>
+				<th>Länge</th>
+				<th>Default</th>
+
+				<th>Identity</th>
+				<th>Unsigned</th>
+				<th>Nullable</th>
+				<th>Primary</th>
+				<th><a class="btn btn-mini addTableRow"><i class="icon-plus"></i></a></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class="sqlColumnRow" id="0">
+				<td>
+					<mage:form.textfield class="input-small required removeChars" name="sql[###tablex###][###cid###][name]" value="" placeholder="Spaltenname"/>
+				</td>
+				<td>
+					<f:form.select class="input-small" name="sql[###tablex###][###cid###][type]" options="{sqlColumnTypes}" />
+				</td>
+				<td>
+					<mage:form.textfield class="input-small" name="sql[###tablex###][###cid###][length]" value="" placeholder="Length"/>
+				</td>
+				<td>
+					<mage:form.textfield class="input-small" name="sql[###tablex###][###cid###][default]" value="" placeholder="Default"/>
+				</td>
+				<td>
+					<f:form.checkbox class="input-small" name="sql[###tablex###][###cid###][identity]" value="1"/>
+				</td>
+				<td>
+					<f:form.checkbox class="input-small" name="sql[###tablex###][###cid###][unsigned]" value="1"/>
+				</td>
+				<td>
+					<f:form.checkbox class="input-small" name="sql[###tablex###][###cid###][nullable]" value="1"/>
+				</td>
+				<td>
+					<f:form.checkbox class="input-small" name="sql[###tablex###][###cid###][primary]" value="1"/>
+				</td>
+				<td>
+					<a class="btn btn-mini rm removeTableRow"><i class="icon-minus"></i></a>
+				</td>
+			</tr>
+		</tbody>
+		</table>
+    </div><!-- end tabX -->
+
+    <div id="sqlColumnHelp" class="modal hide fade">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">×</button>
+            <h3>Hilfe zur Spaltendefinition</h3>
+        </div>
+
+        <div class="modal-body">
+
+            <dl class="dl-horizontal">
+              <dt>Spaltenname</dt>
+              <dd>Der Spaltenname muss sql-gültige Zeichen sein.</dd>
+              <dt>Typ</dt>
+              <dd>Hängt von den Daten ab, die Du speichern möchtest.</dd>
+              <dt>Länge</dt>
+              <dd>Bei Textfeldern kannst Du eine Zahl angeben, wie ziwschen 1 und 255 oder 64k, 2M, um blob/text Spalte zu definieren.</dd>
+              <dt>Default</dt>
+              <dd>Ist derjenige Wert, der anstelle Deines Wertes eingetragen wird.</dd>
+            </dl>
+
+
+        </div>
+        <div class="modal-footer">
+          <a href="#" class="btn" data-dismiss="modal">Close</a>
+        </div>
+    </div>
+
+      </f:form>
+
+
+
+</f:section>

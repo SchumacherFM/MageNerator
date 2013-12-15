@@ -1,0 +1,18 @@
+{namespace mage=Tx_Magenerator_ViewHelpers}
+
+<f:layout name="LoginStatus" />
+
+
+<f:section name="main">
+
+	<f:flashMessages />
+	<mage:ifAuthenticated>
+		<f:then>
+				<f:render partial="LoginStatus/Loggedin" arguments="{loginUser:loginUser}" />
+
+		</f:then>
+		<f:else>
+				<f:render partial="LoginStatus/Loggedout" />
+		</f:else>
+	</mage:ifAuthenticated>
+</f:section>

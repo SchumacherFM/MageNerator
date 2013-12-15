@@ -1,0 +1,17 @@
+{namespace n=Tx_News_ViewHelpers}
+<blockquote>
+    <p>
+        <n:link newsItem="{newsItem}" settings="{settings}">
+            {newsItem.title}
+        </n:link>
+    </p>
+    <small>
+            <f:format.date format="d.m.Y">{newsItem.datetime}</f:format.date>
+        <f:if condition="{newsItem.firstCategory}">
+            <h6>{newsItem.firstCategory.title}</h6>
+        </f:if>
+        <f:if condition="{newsItem.author}">
+                <f:translate key="author" arguments="{0:newsItem.author}"/>
+        </f:if>
+    </small>
+</blockquote>

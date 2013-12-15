@@ -1,0 +1,5 @@
+For an example see here: http://geekli.st/home
+
+Social Login to TYPO3 
+
+http://typo3.org/extensions/repository/view/sociallogin2t3

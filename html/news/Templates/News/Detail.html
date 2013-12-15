@@ -1,0 +1,90 @@
+{namespace n=Tx_News_ViewHelpers}
+
+<f:layout name="Detail.html" />
+
+<!--
+	=====================
+		News/Detail.html
+-->
+
+<f:section name="content">
+	<f:if condition="{newsItem}">
+		<f:then>
+			<n:format.nothing>
+				<f:if condition="{newsItem.alternativeTitle}">
+					<f:then><n:titleTag><n:format.htmlentitiesDecode>{newsItem.alternativeTitle}</n:format.htmlentitiesDecode></n:titleTag></f:then>
+					<f:else><n:titleTag><n:format.htmlentitiesDecode>{newsItem.title}</n:format.htmlentitiesDecode></n:titleTag></f:else>
+				</f:if>
+			</n:format.nothing>
+			<h1 class="h1">
+				<h3>{newsItem.title}</h3>
+			</h1>
+			<div class="footer" role="contentinfo">
+				<p>
+					<!-- date -->
+					<span class="news-list-date">
+						<f:format.date format="d.m.Y">{newsItem.datetime}</f:format.date>
+					</span>
+
+					<f:if condition="{newsItem.categories}">
+						<f:render partial="Category/Items" arguments="{categories:newsItem.categories, settings:settings}"/>
+					</f:if>
+
+					<f:if condition="{newsItem.author}">
+						<!-- author -->
+						<span class="hidden">. </span>
+						<span class="news-list-author">
+                            <a href="{newsItem.authorEmail}" target="_blank">
+                                <f:translate key="author" arguments="{0:newsItem.author}"/>
+                            </a>
+						</span>
+					</f:if>
+				</p>
+			</div>
+
+			<f:if condition="{newsItem.teaser}">
+				<!-- teaser -->
+				<p class="lead">
+					{newsItem.teaser}
+				</p>
+			</f:if>
+
+
+			<!-- main text -->
+			<p>
+				<f:format.html>{newsItem.bodytext}</f:format.html>
+			</p>
+
+			<f:if condition="{settings.backPid}">
+				<!-- Link Back -->
+				<div class="news-backlink-wrap">
+					<f:link.page pageUid="{settings.backPid}">
+						<f:translate key="back-link" />
+					</f:link.page>
+				</div>
+			</f:if>
+
+			<!-- related things -->
+			<div class="news-related-wrap">
+
+
+				<f:if condition="{newsItem.relatedLinks}">
+					<!-- Related links -->
+					<div class="news-related news-related-links">
+						<h4><f:translate key="related-links" /></h4>
+						<ul>
+							<f:for each="{newsItem.relatedLinks}" as="relatedLink">
+								<li>
+									<f:link.page pageUid="{relatedLink.uri}">{relatedLink.title}</f:link.page>
+								</li>
+							</f:for>
+						</ul>
+					</div>
+				</f:if>
+			</div>
+		</f:then>
+		<f:else>
+
+		</f:else>
+	</f:if>
+</f:section>

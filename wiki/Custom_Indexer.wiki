@@ -1,0 +1,3 @@
+http://www.slideshare.net/ivanchepurnyi/magento-indexes
+
+http://stackoverflow.com/questions/4945307/can-someone-explain-magentos-indexing-feature-in-detail

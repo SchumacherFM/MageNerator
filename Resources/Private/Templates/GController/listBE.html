@@ -1,0 +1,107 @@
+{namespace mage=Tx_Magenerator_ViewHelpers}
+<f:layout name="Generator" />
+
+<f:section name="main">
+
+<f:flashMessages />
+
+	<f:render partial="General/headerDesc" arguments="{key:'becontroller',noPTag:1}" />
+
+	<f:render partial="General/navPillsLinkAction"
+		arguments="{navPillsLinkAction:navPillsLinkAction}" />
+
+	<f:render partial="General/alert" />
+
+
+	<f:form class="form-horizontal generatorForm" controller="GControllerFE" action="saveBE" noCache="1" noCacheHash="1" pageType="510">
+
+
+
+	<div class="control-group">
+		<label class="control-label" for="backName">Backend Router</label>
+		<div class="controls">
+			<mage:form.textfield class="input-xlarge aTooltip required removeChars" title="Erlaubte Zeichen sind a-z, A-Z und 0-9 und der Unterstrich"
+				name="backName" id="backName" value="{backName}" placeholder="Backend Route Name" maxlength="30"/>
+			<p class="help-block">
+				Unter welche URL bzw. Route soll Deine Extension erreichbar sein im Backend?<br/>
+				Hint <a href="http://alanstorm.com/magento_admin_controllers" target="_blank">http://alanstorm.com/magento_admin_controllers</a>
+			</p>
+
+		</div>
+	</div>
+
+
+	<ul class="nav nav-tabs">
+		<li class="active"><a href="#tab1" data-toggle="tab">Backend Controller</a></li>
+	</ul>
+
+  <div class="tab-content">
+    <div class="tab-pane active" id="tab1">
+
+		<div class="control-group">
+			<label class="control-label" for="beController[tab1][name]">Controller Name</label>
+			<div class="controls margin-bottom9">
+
+				<mage:form.textfield class="input-xlarge required newTabName removeChars"
+					name="beController[tab1][name]" id="uns_controllername" value="" placeholder="Index" maxlength="30"/>
+				<span class="add-on hide">
+					<a class="btn removeTab" data-tabid="tab1"><i class="icon-minus"></i></a>
+				</span>
+
+				<label class="checkbox">
+					<f:form.checkbox name="beController[tab1][helperFactory]" value="1"/>
+					Erstelle eine Helper Factory Methode
+				</label>
+
+				<label class="checkbox">
+					<f:form.checkbox name="beController[tab1][crud]" value="1"/>
+					Erstelle <a href="http://de.wikipedia.org/wiki/CRUD" target="_blank">CRUD Aktionen</a> (anzeigen, bearbeiten, loeschen).
+				</label>
+
+			</div>
+		</div>
+
+		<div class="control-group">
+			<label class="control-label" for="beController[tab1][0][useModel]">Verwende Model</label>
+			<div class="controls">
+				<f:form.select class="input-medium" name="beController[tab1][useModel]" options="{models}" />
+				<p class="help-block">Waehle hier das Model aus, mit welchen dein Backend Controller arbeiten soll.</p>
+			</div>
+		</div>
+
+
+		<div class="control-group">
+			<label class="control-label" for="beActions[tab1][0][name]">Action Names</label>
+			<div class="controls margin-bottom9">
+
+				<div class="cloneMe">
+					<mage:form.textfield class="input-xlarge removeChars"
+						name="beActions[tab1][0][name]" value="" placeholder="Index" maxlength="30"/>
+						<span class="add-on">
+							<a class="btn cloneMe"><i class="toIconMinus icon-plus"></i></a>
+						</span>
+
+					<label class="checkbox">
+						<f:form.checkbox name="beActions[tab1][0][addLayoutFunc]" value="1"/>
+						Erstelle Load und Render Layout Funktionen
+					</label>
+				</div>
+
+			</div>
+		</div>
+
+		<div class="control-group onDupRm">
+			<label class="control-label">&nbsp;</label>
+			<div class="controls">
+				<a class="btn btn-info duplicateTab">Hinzufuegen</a>
+			</div>
+		</div>
+
+
+    </div><!-- end tab1 -->
+
+	<f:render partial="General/formActions" arguments="{formClassId:'form.generatorForm'}" />
+
+	</f:form>
+
+</f:section>

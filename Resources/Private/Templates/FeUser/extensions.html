@@ -1,0 +1,55 @@
+{namespace mage=Tx_Magenerator_ViewHelpers}
+<f:layout name="FeUser" />
+
+<f:section name="main">
+
+
+    <div class="MageAjaxContainer">
+
+        <f:render partial="General/headerDesc" arguments="{key:'userextension'}" />
+
+        <f:flashMessages />
+
+
+        <f:form object="{feUser}" objectName="feUser" class="form-horizontal" id="mageUserForm"
+                controller="FeUser" action="extensionshdlasdasd" noCache="1" noCacheHash="1" pageType="510">
+
+
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="text-right" style="width:6em;">Datum</th>
+                        <th>Extension Name</th>
+                        <th>Teilen?</th>
+                        <th>Shared Benutzer</th>
+                        <th class="text-right">KB</th>
+                        <th style="width:1em;">&nbsp;</th>
+                        <th style="width:1em;">&nbsp;</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <f:for each="{userext}" as="ext">
+                    <tr>
+                        <td class="text-right"><f:format.html parseFuncTSPath="">{ext.humanCrdate}</f:format.html></td>
+                        <td>{ext.extkey}</td>
+                        <td><f:if condition="{ext.isPublic}"><f:then><i class="icon-share" title="Diese Extension könnenn andere laden, aber nicht hier überschreiben bzw. speichern."></i></f:then>
+                            <f:else><i class="icon-lock"></i></f:else>
+                        </f:if></td>
+                        <td>...</td>
+                        <td class="text-right">{ext.extensionSize}</td>
+                        <td><f:link.action controller="FeUser" action="loadExtension" arguments="{ext:ext}"><i class="icon-edit" title="Extension laden"></i></f:link.action></td>
+                        <td><i class="icon-trash" title="Extension löschen @todo"></i></td>
+                    </tr>
+                </f:for>
+                </tbody>
+            </table>
+
+        </f:form>
+
+        <!--    <img class="mageUserForm_ajax hide" src="/fileadmin/magenerator/img/ajax.gif"
+                 alt="ajax loading" style="margin:0 auto;" />-->
+
+    </div>
+
+</f:section>

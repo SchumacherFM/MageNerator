@@ -1,0 +1,32 @@
+{namespace mage=Tx_Magenerator_ViewHelpers}
+<f:layout name="FeUser" />
+
+<f:section name="main">
+
+
+    <div class="MageAjaxContainer" style="width: 40em;">
+
+        <f:render partial="General/headerDesc" arguments="{key:'userextensionTop'}" />
+
+        <f:flashMessages />
+
+            <table class="table" style="width: 20em; margin:0 auto;">
+                <thead>
+                    <tr>
+                        <th class="text-right">User ID</th>
+                        <th class="text-right">Anzahl</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <f:for each="{top}" as="ext">
+                    <tr>
+                        <td class="text-right">{ext.feuser}</td>
+                        <td class="text-right">{ext.amount}</td>
+                    </tr>
+                </f:for>
+                </tbody>
+            </table>
+
+    </div>
+
+</f:section>

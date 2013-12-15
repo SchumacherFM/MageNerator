@@ -1,0 +1,18 @@
+
+<h2>Dear MageNerator.net Admin,</h2>
+
+<p>A user has send you a lead from the website.</p>
+
+<table>
+    <tr>
+        <th>Key</th>
+        <th>Value</th>
+    </tr>
+
+    <f:for each="{contact}" key="k" as="v">
+        <tr>
+            <td>{k}</td>
+            <td><f:format.nl2br>{v}</f:format.nl2br></td>
+        </tr>
+    </f:for>
+</table>

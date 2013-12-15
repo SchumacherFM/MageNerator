@@ -1,0 +1,39 @@
+{namespace mage=Tx_Magenerator_ViewHelpers}
+<f:layout name="Generator" />
+
+<f:section name="main">
+
+<f:flashMessages />
+
+
+	<f:render partial="General/headerDesc" arguments="{key:'gsave'}" />
+
+	<f:render partial="General/alert" />
+
+
+	<f:form class="form-horizontal generatorForm" controller="GSave" action="save" noCache="1" noCacheHash="1" pageType="510">
+
+
+		<div class="control-group">
+			<label class="control-label" for="zip_filename">xxxx</label>
+			<div class="controls">
+				<mage:form.textfield class="input-xlarge aTooltip removeChars" title="Erlaubte Zeichen sind A-Z und 0-9 und der Punkt." name="zip_filename" id="zip_filename" value="{zip_filename}"/>
+				<p class="help-block">Mehr Optionen?</p>
+			</div>
+		</div>
+
+		<div class="control-group">
+			<label class="control-label" for="is_public">Teilen?</label>
+			<div class="controls">
+				<f:form.select id="is_public" name="is_public" options="{0:'Nein',1:'Ja'}" value="{is_public}"/>
+				<p class="help-block">Möchtest Du Dein Template anderen Usern hier zur Verfügung stellen?</p>
+			</div>
+		</div>
+
+    <div class="form-actions">
+        <button type="button" data-formid="form.generatorForm" class="generatorSaveForm btn btn-primary">Dauerhaft Speichern</button>
+    </div>
+
+	</f:form>
+
+</f:section>

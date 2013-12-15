@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<description>Context Sensitive Help (CSH) for table tx_magenerator_domain_model_userextensions</description>
+		<type>CSH</type>
+		<csh_table>tx_magenerator_domain_model_userextensions</csh_table>
+	</meta>
+	<data type="array">
+	<languageKey index="default" type="array">
+
+			<label index="extension.description">CSH Serialized Array of the config values for one extension</label>
+			<label index="downloads.description">CSH Number of downloads</label>
+			<label index="is_public.description">CSH isPublic</label>
+			<label index="zip_filename.description">CSH Name of the Zip File for Downloading</label>
+		</languageKey>
+	</data>
+</T3locallang>

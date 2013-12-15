@@ -1,0 +1,29 @@
+{namespace mage=Tx_Magenerator_ViewHelpers}
+<f:layout name="Generator" />
+
+<f:section name="main">
+
+<f:flashMessages />
+
+
+	<f:render partial="General/headerDesc" arguments="{key:'generate'}" />
+
+	<f:render partial="General/alert" />
+
+    <div class="form-actions">
+        <f:link.action
+        pageType="510"
+        noCache="1"
+        noCacheHash="1"
+        class="ajaxLoader btn btn-large btn-primary"
+        action="generate"
+        controller="Generate">Extension {namespace}_{extname} jetzt generieren!</f:link.action>
+
+    </div>
+
+
+
+
+
+
+</f:section>

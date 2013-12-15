@@ -1,0 +1,31 @@
+* 5 Useful Tricks For Your Magento local.xml http://magebase.com/magento-tutorials/5-useful-tricks-for-your-magento-local-xml/
+
+* Meet Magento Vortrag: Konfiguratoren mit Magento http://www.webguys.de/magento/meet-magento-vortrag-konfiguratoren-mit-magento/
+
+* Facebook App to create modules directly within FB
+
+* 5 Logo Design Tips for Ecommerce Websites http://www.shopify.com/blog/6149614-5-logo-design-tips-for-ecommerce-websites
+
+* adminhtml grid renderer for images 
+  [Namespace]/[Module]/Block/[Adminhtml]/template/grid/renderer/Image.php
+  http://www.magentocommerce.com/boards/viewthread/48689
+
+* Pure CSS Slide Toggle with a Checkbox http://jsfiddle.net/joshnh/evePU/show/
+
+* Alan Storm: I'd pay a dollar for some code that let me upload a tar ball and have a valid Magento Connect package returned back to me. https://twitter.com/alanstorm/statuses/220291363969843200
+
+* Alan Storm: Magento Attribute Migration Generator http://alanstorm.com/magento_attribute_migration_generator
+
+* http://markshust.com/2012/07/05/creating-magento-adminhtml-grids-simplified
+
+* Observer for every version different: http://www.nicksays.co.uk/magento_events_cheat_sheet/
+
+* Magento Package XML Builder for Modman https://github.com/punkstar/modbuild
+
+* Introducing Wiz, a CLI Tool for Magento [[http://www.classyllama.com/magento/introducing-wiz-a-cli-tool-magento]]
+
+* [[URL_Rewrite|URL Rewrite]]
+
+* http://stackoverflow.com/questions/12138397/how-to-i-make-a-magento-module-that-can-crud-a-custom-table-inside-the-admin-pa
+
+* Zusätzliche Attribute im Warenkorb anzeigen http://www.webguys.de/magento/zusatzliche-attribute-im-warenkorb-anzeigen/

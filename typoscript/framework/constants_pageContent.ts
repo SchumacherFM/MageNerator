@@ -1,0 +1,3 @@
+site {
+	title = MageNerator.net
+}

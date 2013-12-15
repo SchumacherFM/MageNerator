@@ -1,0 +1,160 @@
+{namespace mage=Tx_Magenerator_ViewHelpers}
+<f:layout name="FeUser" />
+
+<f:section name="main">
+
+
+<div class="MageAjaxContainer">
+
+    <f:flashMessages />
+
+	<f:render partial="General/alert" />
+
+    <f:form class="form-horizontal" id="mageContactForm"
+        controller="Contact" action="send" pageType="510001">
+
+
+  <fieldset>
+    <legend class="hide">
+            MageNerator.net - Kontakt Center
+    </legend>
+    <p></p>
+<div class="row"> <br/>
+  <div class="span4">
+
+    <div class="control-group">
+      <label class="control-label" for="email">E-Mail Adresse</label>
+      <div class="controls">
+        <mage:form.textfield type="email" tabindex="10" name="contact[email]" value="{feUser.email}"
+            class="input-medium" id="email" placeholder="John@Doe.com"/>
+            <span class="help-inline"><i class="icon-bell"></i></span>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" for="subject">Betreff</label>
+      <div class="controls">
+        <mage:form.textfield name="contact[subject]" tabindex="40" id="subject" value="{contact.subject}"
+            class="input-medium" placeholder="Dein Betreff"/>
+            <span class="help-inline"><i class="icon-bell"></i></span>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" for="message">Nachricht</label>
+      <div class="controls">
+        <mage:form.textarea name="contact[message]" tabindex="40" rows="5" cols="20" id="message"
+                            class="input-medium">{contact.message}</mage:form.textarea>
+            <span class="help-inline"><i class="icon-bell"></i></span>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" for="message">Hinweis</label>
+      <div class="controls">
+          Wenn Du einen Fehler melden möchtest, benutze bitte den
+          <a href="https://bitbucket.org/SchumacherFM/magenerator/issues" target="_blank">Bitbucket.org Bugtracker</a>.
+          Danke!
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" for="message">Captcha</label>
+      <div class="controls">
+          @todo Hängt vom Spam aufkommen ab...
+      </div>
+    </div>
+
+
+
+
+
+  </div><!--/span4 end -->
+  <div class="span4">
+
+    <div class="control-group">
+      <label class="control-label" for="title">Anrede</label>
+      <div class="controls">
+        <mage:form.textfield name="contact[title]" tabindex="71" id="title" value="{feUser.title}"
+            class="input-medium" placeholder="Anrede" />
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" for="firstName">Vorname</label>
+      <div class="controls">
+        <mage:form.textfield name="contact[firstName]" tabindex="60" id="firstName" value="{feUser.firstName}"
+            class="input-medium" placeholder="Vorname"/>
+            <span class="help-inline"><i class="icon-bell"></i></span>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" for="lastName">Nachname</label>
+      <div class="controls">
+        <mage:form.textfield name="contact[lastName]" tabindex="70" id="lastName" value="{feUser.lastName}"
+            class="input-medium" placeholder="Nachname"/>
+            <span class="help-inline"><i class="icon-bell"></i></span>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" for="company">Firma</label>
+      <div class="controls">
+        <mage:form.textfield name="contact[company]" tabindex="90" id="company" value="{feUser.company}"
+            class="input-medium" placeholder="Firma" />
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" for="address">Adresse</label>
+      <div class="controls">
+        <mage:form.textarea name="contact[address]" tabindex="100" id="address" value="{feUser.address}"
+            class="input-medium" rows="3" cols="10"/>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" for="zip">Postleitzahl</label>
+      <div class="controls">
+        <mage:form.textfield name="contact[zip]" tabindex="110" id="zip" value="{feUser.zip}"
+            class="input-medium" placeholder="Postleitzahl"/>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" for="city">Stadt</label>
+      <div class="controls">
+        <mage:form.textfield name="contact[city]" tabindex="120" id="city" value="{feUser.city}"
+            class="input-medium" placeholder="Stadt"/>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" for="country">Land</label>
+      <div class="controls">
+        <f:form.select name="contact[country]" tabindex="130" options="{countries}" id="country" value="{feUser.country}"
+            class="input-medium" />
+      </div>
+    </div>
+
+  </div><!--/span4 end -->
+
+</div>
+
+  </fieldset>
+
+
+        <div class="form-actions span6">
+            <button tabindex="80" type="button" class="btn btn-primary ajaxContactFormSubmit">
+                Anfrage abschicken
+            </button>
+        </div>
+    </f:form>
+
+    <img class="mageContactForm_ajax hide" src="/fileadmin/magenerator/img/ajax.gif"
+         alt="ajax loading" style="margin:0 auto;" />
+
+</div>
+
+</f:section>

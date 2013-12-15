@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3DataStructure>
+	<meta type="array">
+		<langChildren>1</langChildren>
+		<langDisable>0</langDisable>
+		<default type="array">
+			<TCEForms type="array">
+				<sys_language_uid>-1</sys_language_uid>
+			</TCEForms>
+		</default>
+	</meta>
+	<ROOT type="array">
+		<tx_templavoila type="array">
+			<title>ROOT</title>
+			<description>Select the HTML element on the page which you want to be the overall container element for the template.</description>
+		</tx_templavoila>
+		<type>array</type>
+		<el type="array">
+			<field_link type="array">
+				<tx_templavoila type="array">
+					<title>Link</title>
+					<sample_data type="array">
+						<numIndex index="0"></numIndex>
+					</sample_data>
+					<eType>link</eType>
+					<TypoScript><![CDATA[10 = TEXT
+10.typolink.parameter.current = 1
+10.typolink.ATagParams = class="btn btn-primary btn-large"
+10.field = field_text]]></TypoScript>
+					<proc type="array">
+						<int>0</int>
+						<HSC>0</HSC>
+						<stdWrap></stdWrap>
+					</proc>
+					<preview></preview>
+				</tx_templavoila>
+				<TCEforms type="array">
+					<label>Link</label>
+					<config type="array">
+						<type>input</type>
+						<size>15</size>
+						<max>256</max>
+						<checkbox></checkbox>
+						<eval>trim</eval>
+						<wizards type="array">
+							<_PADDING type="integer">2</_PADDING>
+							<link type="array">
+								<type>popup</type>
+								<title>Link</title>
+								<icon>link_popup.gif</icon>
+								<script>browse_links.php?mode=wizard</script>
+								<JSopenParams>height=300,width=500,status=0,menubar=0,scrollbars=1</JSopenParams>
+							</link>
+						</wizards>
+					</config>
+				</TCEforms>
+			</field_link>
+			<field_text type="array">
+				<type>no_map</type>
+				<tx_templavoila type="array">
+					<title>Link Text</title>
+					<sample_data type="array">
+						<numIndex index="0"></numIndex>
+					</sample_data>
+					<eType>input</eType>
+					<TypoScript type="NULL"></TypoScript>
+					<proc type="array">
+						<int>0</int>
+						<HSC>1</HSC>
+						<stdWrap></stdWrap>
+					</proc>
+					<preview></preview>
+				</tx_templavoila>
+				<TCEforms type="array">
+					<label>Link Text</label>
+					<config type="array">
+						<type>input</type>
+						<size>48</size>
+						<eval>trim</eval>
+					</config>
+				</TCEforms>
+			</field_text>
+		</el>
+	</ROOT>
+</T3DataStructure>

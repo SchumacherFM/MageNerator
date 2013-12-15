@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>database</type>
+		<description>Language labels for database tables/fields belonging to extension 'magenerator'</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="tx_magenerator_domain_model_generatecounter">Magenerator Generate Counter</label>
+			<label index="tx_magenerator_domain_model_generatecounter.extkey">Extension Key (Namespace and Name)</label>
+
+			<label index="tx_magenerator_domain_model_userextensions">Magenerator User Extensions</label>
+			<label index="tx_magenerator_domain_model_userextensions.extension">Extension (Serialized Array)</label>
+			<label index="tx_magenerator_domain_model_userextensions.downloads">Downloads</label>
+			<label index="tx_magenerator_domain_model_userextensions.is_public">Is Public</label>
+			<label index="tx_magenerator_domain_model_userextensions.zip_filename">Zip Filename</label>
+			<label index="tx_magenerator_domain_model_userextensions.extkey">Extension Key (Namespace and Name)</label>
+
+            <!-- dynamic tabs via Hooks -->
+			<label index="userextensions.tab.magenerator_gcommon">Common</label>
+			<label index="userextensions.tab.magenerator_gmodel">Model</label>
+
+
+			<label index="tx_magenerator_domain_model_feuser">Magenerator User</label>
+			<label index="tx_magenerator_domain_model_feuser.account_type">Account Type</label>
+			<label index="tx_magenerator_domain_model_feuser.credit">Credit</label>
+			<label index="tx_magenerator_domain_model_feuser.namespace">Namespace</label>
+			<label index="tx_magenerator_domain_model_feuser.user_ext">User Ext</label>
+			<label index="tx_magenerator_domain_model_feuser.invite">Invite ID</label>
+			<label index="tx_magenerator_domain_model_feuser.fe_invites">FeUser Invites</label>
+
+			<label index="fe_users.tx_extbase_type.Tx_Magenerator_FeUser">MageNerator FeUser</label>
+
+			<label index="tx_magenerator_domain_model_extns">Extension Namespace</label>
+			<label index="tx_magenerator_domain_model_extns.namespace">Namespace</label>
+			<label index="tx_magenerator_domain_model_extns.url">Url</label>
+			<label index="tx_magenerator_domain_model_extns.extensions">Extensions</label>
+
+			<label index="tx_magenerator_domain_model_extname">Extension Name</label>
+			<label index="tx_magenerator_domain_model_extname.name">Name</label>
+			<label index="tx_magenerator_domain_model_extname.url">Url</label>
+			<label index="tx_magenerator_domain_model_extname.extkey">Extkey</label>
+			<label index="tx_magenerator_domain_model_extname.front_name">Frontend Router Name</label>
+
+			<label index="tx_magenerator_domain_model_invites">Invites</label>
+			<label index="tx_magenerator_domain_model_invites.invite">Invite ID</label>
+
+			<label index="tx_magenerator_domain_model_contacts">Contacts</label>
+			<label index="tx_magenerator_domain_model_contacts.cname">Name</label>
+			<label index="tx_magenerator_domain_model_contacts.contact">Contact Serialized</label>
+
+			<label index="pages.donotlinkit">Do not link it (Navigation)</label>
+
+
+		</languageKey>
+	</data>
+</T3locallang>

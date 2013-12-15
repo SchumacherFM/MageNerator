@@ -1,0 +1,32 @@
+// paulirish.com/2009/log-a-lightweight-wrapper-for-consolelog/
+/*
+ * jQuery hashchange event - v1.3 - 7/21/2010
+ * http://benalman.com/projects/jquery-hashchange-plugin/
+ *
+ * Copyright (c) 2010 "Cowboy" Ben Alman
+ * Dual licensed under the MIT and GPL licenses.
+ * http://benalman.com/about/license/
+ */
+/**
+ * jQuery Validation Plugin 1.9.0
+ *
+ * http://bassistance.de/jquery-plugins/jquery-plugin-validation/
+ * http://docs.jquery.com/Plugins/Validation
+ *
+ * Copyright (c) 2006 - 2011 Jörn Zaefferer
+ *
+ * Dual licensed under the MIT and GPL licenses:
+ *   http://www.opensource.org/licenses/mit-license.php
+ *   http://www.gnu.org/licenses/gpl.html
+ */
+/**
+ * TableDnD plug-in for JQuery, allows you to drag and drop table rows
+ * You can set up various options to control how the system will work
+ * Copyright (c) Denis Howlett <denish@isocra.com>
+ * Licensed like jQuery, see http://docs.jquery.com/License.
+ *
+ * https://github.com/isocra/TableDnD
+ */
+/****************************************************************************
+ *	rest of the stuff is Copyright Cyrill@Schumacher.fm for MageNerator.net
+ ****************************************************************************/

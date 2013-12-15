@@ -1,0 +1,28 @@
+<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+    <i class="icon-user"></i> Login / Register
+    <span class="caret"></span>
+</a>
+
+<ul class="dropdown-menu">
+    <li>
+        <f:link.page pageUid="245" pageType="510" class="fancyboxLogin">
+            Login
+        </f:link.page>
+    </li>
+    <li>
+        <f:link.page pageUid="291" pageType="510" class="fancyboxLogin">
+            Social Login
+        </f:link.page>
+    </li>
+    <li>
+        <f:link.action controller="FeUser" action="register" pageUid="246" pageType="510" class="fancyboxLogin">
+            Registrieren
+        </f:link.action>
+
+    </li>
+    <li>
+        <a class="fancyboxLogin" href="<f:cObject typoscriptObjectPath='lib.feuserForgotPwLink'></f:cObject>">
+            Passwort vergessen
+        </a>
+    </li>
+</ul>

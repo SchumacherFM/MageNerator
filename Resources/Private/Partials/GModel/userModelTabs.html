@@ -1,0 +1,62 @@
+{namespace mage=Tx_Magenerator_ViewHelpers}
+<f:for each="{sql}" key="tableName" as="columns">
+
+    <div class="tab-pane" id="tab{tableName}">
+
+
+ 		<h3>Spaltendefinition für Tabelle [{tableName}]</h3>
+
+		<p>&nbsp;</p>
+		<table class="table table-condensed modelTableAutoGen">
+		<thead>
+			<tr>
+				<th>Spaltenname</th>
+				<th>Typ</th>
+				<th>Länge</th>
+				<th>Default</th>
+
+				<th>Identity</th>
+				<th>Unsigned</th>
+				<th>Nullable</th>
+				<th>Primary</th>
+				<th><a class="btn btn-mini addTableRow" data-tabid="{tableName}" data-modelname="{tableName}"><i class="icon-plus"></i></a></th>
+			</tr>
+		</thead>
+		<tbody>
+		<f:for each="{columns}" key="colIndex" as="colProp">
+
+			<tr class="sqlColumnRow" id="{colIndex}">
+				<td>
+					<mage:form.textfield class="input-small required removeChars" name="sql[{tableName}][{colIndex}][name]" value="{colProp.name}" placeholder="Spaltenname"/>
+				</td>
+				<td>
+					<f:form.select class="input-small" name="sql[{tableName}][{colIndex}][type]" value="{colProp.type}" options="{sqlColumnTypes}" />
+				</td>
+				<td>
+					<mage:form.textfield class="input-small" name="sql[{tableName}][{colIndex}][length]" value="{colProp.length}" placeholder="Length"/>
+				</td>
+				<td>
+					<mage:form.textfield class="input-small" name="sql[{tableName}][{colIndex}][default]" value="{colProp.default}" placeholder="Default"/>
+				</td>
+				<td>
+					<f:form.checkbox class="input-small" name="sql[{tableName}][{colIndex}][identity]" value="1" checked="{colProp.identity}==1"/>
+				</td>
+				<td>
+					<f:form.checkbox class="input-small" name="sql[{tableName}][{colIndex}][unsigned]" value="1" checked="{colProp.unsigned}==1"/>
+				</td>
+				<td>
+					<f:form.checkbox class="input-small" name="sql[{tableName}][{colIndex}][nullable]" value="1" checked="{colProp.nullable}==1"/>
+				</td>
+				<td>
+					<f:form.checkbox class="input-small" name="sql[{tableName}][{colIndex}][primary]" value="1" checked="{colProp.primary}==1"/>
+				</td>
+				<td>
+					<a class="btn btn-mini rm removeTableRow" data-tabid="{tableName}"><i class="icon-minus"></i></a>
+				</td>
+			</tr>
+		</f:for>
+		</tbody>
+		</table>
+<a data-toggle="modal" href="#sqlColumnHelp" class="btn btn-mini pull-right"><i class="icon-question-sign"></i> Hilfe zur Spaltendefinition</a>
+    </div><!-- end tab{tableName} -->
+</f:for>

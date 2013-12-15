@@ -1,0 +1,14 @@
+	<ul class="nav nav-pills">
+	<f:for each="{navPillsLinkAction}" as="li" key="index">
+	      <li class="{li.liClass}">
+		  <f:link.action
+			  pageType="{li.type}"
+			  noCache="{li.noCache}"
+			  noCacheHash="{li.noCacheHash}"
+			  class="{li.aClass}"
+			  action="{li.action}"
+			  controller="{li.controller}">{li.name}</f:link.action>
+		  </li>
+
+	</f:for>
+    </ul>

@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3DataStructure>
+	<meta type="array">
+		<langDisable>1</langDisable>
+	</meta>
+	<ROOT type="array">
+		<tx_templavoila type="array">
+			<title>ROOT</title>
+			<description>Select the HTML element on the page which you want to be the overall container element for the template.</description>
+		</tx_templavoila>
+		<type>array</type>
+		<el type="array">
+			<field_brand type="array">
+				<tx_templavoila type="array">
+					<title>Brand</title>
+					<sample_data type="array">
+						<numIndex index="0"></numIndex>
+					</sample_data>
+					<eType>TypoScriptObject</eType>
+					<proc type="array">
+						<int>0</int>
+						<HSC>0</HSC>
+						<stdWrap></stdWrap>
+					</proc>
+					<preview></preview>
+					<TypoScriptObjPath>lib.brand</TypoScriptObjPath>
+				</tx_templavoila>
+			</field_brand>
+			<field_feuser type="array">
+				<tx_templavoila type="array">
+					<title>Fe-User</title>
+					<sample_data type="array">
+						<numIndex index="0"></numIndex>
+					</sample_data>
+					<eType>TypoScriptObject</eType>
+					<proc type="array">
+						<int>0</int>
+						<HSC>0</HSC>
+						<stdWrap></stdWrap>
+					</proc>
+					<preview></preview>
+					<TypoScriptObjPath>lib.feuser</TypoScriptObjPath>
+				</tx_templavoila>
+			</field_feuser>
+			<field_topnav type="array">
+				<tx_templavoila type="array">
+					<title>Top Nav</title>
+					<sample_data type="array">
+						<numIndex index="0"></numIndex>
+					</sample_data>
+					<eType>TypoScriptObject</eType>
+					<proc type="array">
+						<int>0</int>
+						<HSC>0</HSC>
+						<stdWrap></stdWrap>
+					</proc>
+					<preview></preview>
+					<TypoScriptObjPath>lib.topnav</TypoScriptObjPath>
+				</tx_templavoila>
+			</field_topnav>
+			<field_leftnav type="array">
+				<tx_templavoila type="array">
+					<title>Left Nav</title>
+					<sample_data type="array">
+						<numIndex index="0"></numIndex>
+					</sample_data>
+					<eType>TypoScriptObject</eType>
+					<proc type="array">
+						<int>0</int>
+						<HSC>0</HSC>
+						<stdWrap></stdWrap>
+					</proc>
+					<preview></preview>
+					<TypoScriptObjPath>lib.leftnav</TypoScriptObjPath>
+				</tx_templavoila>
+			</field_leftnav>
+			<field_content type="array">
+				<tx_templavoila type="array">
+					<title>Content</title>
+					<sample_data type="array">
+						<numIndex index="0"></numIndex>
+					</sample_data>
+					<eType>ce</eType>
+					<TypoScript>
+10= RECORDS
+10.source.current=1
+10.tables = tt_content</TypoScript>
+					<preview></preview>
+					<enableDragDrop type="integer">1</enableDragDrop>
+				</tx_templavoila>
+				<TCEforms type="array">
+					<label>Content</label>
+					<config type="array">
+						<type>group</type>
+						<internal_type>db</internal_type>
+						<allowed>tt_content</allowed>
+						<size>5</size>
+						<maxitems>200</maxitems>
+						<minitems>0</minitems>
+						<multiple>1</multiple>
+						<show_thumbs>1</show_thumbs>
+					</config>
+				</TCEforms>
+			</field_content>
+			<field_footercopy type="array">
+				<tx_templavoila type="array">
+					<title>Footer Copyright</title>
+					<sample_data type="array">
+						<numIndex index="0"></numIndex>
+					</sample_data>
+					<eType>TypoScriptObject</eType>
+					<preview></preview>
+					<TypoScriptObjPath>lib.footercopy</TypoScriptObjPath>
+					<proc type="array">
+						<int>0</int>
+						<HSC>0</HSC>
+						<stdWrap></stdWrap>
+					</proc>
+				</tx_templavoila>
+			</field_footercopy>
+			<field_removejs type="array">
+				<tx_templavoila type="array">
+					<title>Remove JS</title>
+					<sample_data type="array">
+						<numIndex index="0"></numIndex>
+					</sample_data>
+					<eType>none</eType>
+					<TypoScript></TypoScript>
+					<preview></preview>
+				</tx_templavoila>
+			</field_removejs>
+			<field_language type="array">
+				<tx_templavoila type="array">
+					<title>Language</title>
+					<sample_data type="array">
+						<numIndex index="0"></numIndex>
+					</sample_data>
+					<eType>TypoScriptObject</eType>
+					<proc type="array">
+						<int>0</int>
+						<HSC>0</HSC>
+						<stdWrap></stdWrap>
+					</proc>
+					<preview></preview>
+					<TypoScriptObjPath>lib.nav_language</TypoScriptObjPath>
+				</tx_templavoila>
+			</field_language>
+			<field_paypal type="array">
+				<tx_templavoila type="array">
+					<title>Paypal Donate</title>
+					<sample_data type="array">
+						<numIndex index="0"></numIndex>
+					</sample_data>
+					<eType>TypoScriptObject</eType>
+					<proc type="array">
+						<int>0</int>
+						<HSC>0</HSC>
+						<stdWrap></stdWrap>
+					</proc>
+					<preview></preview>
+					<TypoScriptObjPath>lib.paypal</TypoScriptObjPath>
+				</tx_templavoila>
+			</field_paypal>
+			<field_rightcolumn type="array">
+				<tx_templavoila type="array">
+					<title>Right Banner Column</title>
+					<sample_data type="array">
+						<numIndex index="0"></numIndex>
+					</sample_data>
+					<eType>TypoScriptObject</eType>
+					<proc type="array">
+						<int>0</int>
+						<HSC>0</HSC>
+						<stdWrap></stdWrap>
+					</proc>
+					<preview></preview>
+					<TypoScriptObjPath>lib.rightBanner</TypoScriptObjPath>
+				</tx_templavoila>
+			</field_rightcolumn>
+			<field_extcount type="array">
+				<tx_templavoila type="array">
+					<title>Counter Generated Extensions</title>
+					<sample_data type="array">
+						<numIndex index="0"></numIndex>
+					</sample_data>
+					<eType>TypoScriptObject</eType>
+					<proc type="array">
+						<int>0</int>
+						<HSC>0</HSC>
+						<stdWrap></stdWrap>
+					</proc>
+					<preview></preview>
+					<TypoScriptObjPath>lib.extensionCount</TypoScriptObjPath>
+				</tx_templavoila>
+			</field_extcount>
+			<field_topnavabout type="array">
+				<tx_templavoila type="array">
+					<title>Top Nav About</title>
+					<sample_data type="array">
+						<numIndex index="0"></numIndex>
+					</sample_data>
+					<eType>TypoScriptObject</eType>
+					<proc type="array">
+						<int>0</int>
+						<HSC>0</HSC>
+						<stdWrap></stdWrap>
+					</proc>
+					<preview></preview>
+					<TypoScriptObjPath>lib.topnavAbout</TypoScriptObjPath>
+				</tx_templavoila>
+			</field_topnavabout>
+			<field_footerleft type="array">
+				<tx_templavoila type="array">
+					<title>Nav Footer Left</title>
+					<sample_data type="array">
+						<numIndex index="0"></numIndex>
+					</sample_data>
+					<eType>TypoScriptObject</eType>
+					<proc type="array">
+						<int>0</int>
+						<HSC>0</HSC>
+						<stdWrap></stdWrap>
+					</proc>
+					<preview></preview>
+					<TypoScriptObjPath>lib.nav_footerleft</TypoScriptObjPath>
+				</tx_templavoila>
+			</field_footerleft>
+			<field_footermiddle type="array">
+				<tx_templavoila type="array">
+					<title>Nav Footer Middle</title>
+					<sample_data type="array">
+						<numIndex index="0"></numIndex>
+					</sample_data>
+					<eType>TypoScriptObject</eType>
+					<proc type="array">
+						<int>0</int>
+						<HSC>0</HSC>
+						<stdWrap></stdWrap>
+					</proc>
+					<preview></preview>
+					<TypoScriptObjPath>lib.nav_footermiddle</TypoScriptObjPath>
+				</tx_templavoila>
+			</field_footermiddle>
+			<field_footerright type="array">
+				<tx_templavoila type="array">
+					<title>Nav Footer Right</title>
+					<sample_data type="array">
+						<numIndex index="0"></numIndex>
+					</sample_data>
+					<eType>TypoScriptObject</eType>
+					<proc type="array">
+						<int>0</int>
+						<HSC>0</HSC>
+						<stdWrap></stdWrap>
+					</proc>
+					<preview></preview>
+					<TypoScriptObjPath>lib.nav_footerright</TypoScriptObjPath>
+				</tx_templavoila>
+			</field_footerright>
+		</el>
+	</ROOT>
+</T3DataStructure>

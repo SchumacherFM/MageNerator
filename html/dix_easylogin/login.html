@@ -1,0 +1,51 @@
+<h3>MageNerator.net Social Login (@todo)</h3>
+
+<div class="socialLoginContainer">
+    <ul id="socialLogin" class="nav nav-tabs">
+        <f:for each="{values.provider}" as="provider" key="type" iteration="rowIterator">
+            <f:if condition="{provider.showMe}">
+                <li{f:if(condition: rowIterator.isFirst, then: ' class="active"')}><a href="#tabs-{type}" data-toggle="tab">
+                    <f:if condition="{provider.icon}">
+                        <img src="{provider.icon}" title="{provider.name}" alt="{provider.name}"/>
+                    </f:if>
+                    {provider.name}
+                </a></li>
+            </f:if>
+        </f:for>
+    </ul>
+    <div class="tab-content">
+        <f:for each="{values.provider}" as="provider" key="type" iteration="rowIterator">
+            <f:if condition="{provider.showMe}">
+                <div class="tab-pane{f:if(condition: rowIterator.isFirst, then: ' active')}" id="tabs-{type}">
+                    <f:if condition="{provider.type} == {values.constants.CONTENTELEMENT}">
+                        <f:then>{provider.content}</f:then>
+                        <f:else>
+                            <form action="{values.formaction}" method="POST">
+                                <input type="hidden" name="{values.prefix}[loginType]" id="loginType" value="{type}"/>
+                                <input type="hidden" name="{values.prefix}[process]" value="1"/>
+                                <f:if condition="{provider.withUsername}">
+                                    Username: <input type="text" name="{values.prefix}[userName]"/><br/>
+                                </f:if>
+
+
+                                <f:if condition="{values.user}">
+                                    <f:then>
+                                        <input type="submit" value="Connect with {provider.name} account"/>
+                                    </f:then>
+                                    <f:else>
+                                        <input type="submit" value="Login with {provider.name}"/>
+                                    </f:else>
+                                </f:if>
+
+
+                            </form>
+                        </f:else>
+                    </f:if>
+                </div>
+            </f:if>
+        </f:for>
+    </div>
+    <f:if condition="{values.error}">
+        <p style='color: red'><b>{values.error}</b></p>
+    </f:if>
+</div>

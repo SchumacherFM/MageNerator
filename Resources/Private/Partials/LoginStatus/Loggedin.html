@@ -1,0 +1,34 @@
+<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+	<i class="icon-user"></i>
+
+Hello {loginUser.username}!
+
+
+	<span class="caret"></span>
+</a>
+<ul class="dropdown-menu">
+    <li>
+		<f:link.action controller="FeUser" action="edit" pageUid="246" pageType="510" class="fancyboxLogin">
+           <i class="icon-edit"></i> Meine Daten
+		</f:link.action>
+    </li>
+	<li class="divider"></li>
+	<li>
+        <f:link.action controller="FeUser" action="extensions" pageUid="246" pageType="510" class="fancyboxHtml">
+           <i class="icon-cogwheels"></i> Meine Extensions
+        </f:link.action>
+
+    </li>
+	<li class="divider"></li>
+	<li>
+        <f:link.action action="top" controller="UserExtensions" pageType="510" pageUid="246" class="fancyboxHtml">
+           <i class="icon-stats"></i> Top Generators
+        </f:link.action>
+    </li>
+	<li class="divider"></li>
+	<li>
+        <a href="<f:cObject typoscriptObjectPath='lib.feuserLogoutLink'></f:cObject>">
+           <i class="icon-off"></i> Logout
+        </a>
+	</li>
+</ul>

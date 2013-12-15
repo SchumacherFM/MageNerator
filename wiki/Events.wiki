@@ -1,0 +1,14 @@
+Mage_Core_Helper_Data
+
+public function copyFieldset
+
+{{{
+#!php
+<?php
+        $eventName = sprintf('core_copy_fieldset_%s_%s', $fieldset, $aspect);
+        Mage::dispatchEvent($eventName, array(
+            'target' => $target,
+            'source' => $source,
+            'root'   => $root
+        ));
+}}}

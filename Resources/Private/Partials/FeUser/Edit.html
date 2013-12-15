@@ -1,0 +1,200 @@
+{namespace mage=Tx_Magenerator_ViewHelpers}
+
+<!-- f : debug>{feUser}</f:debug -->
+
+
+  <fieldset>
+    <legend>
+        <f:if condition="{isCreate}">
+            <f:then>
+                MageNerator.net - Registrierung
+            </f:then>
+            <f:else>
+                MageNerator.net - Mein Profil bearbeiten
+            </f:else>
+        </f:if>
+    </legend>
+    <p></p>
+<div class="row"> <br/>
+  <div class="span4">
+
+
+    <f:if condition="{isCreate}">
+        <f:then>
+            <div class="control-group">
+            <label class="control-label" for="endtime">Einladungs-ID</label>
+            <div class="controls">
+                <mage:form.textfield name="invite" tabindex="50" value="" class="input-medium required"/>
+                <span class="help-inline"><i class="icon-asterisk"></i></span>
+                <p class="help-block"><small>Bitte trage hier die ID Deiner Einladung ein, andernfalls ist keine Anmeldung möglich.</small></p>
+            </div>
+            </div>
+        </f:then>
+        <f:else>
+            <div class="control-group">
+            <label class="control-label" for="endtime">Einladungen</label>
+            <div class="controls">
+                <f:for each="{feUser.feInvites}" as="invite">
+                    {invite.invite}<br/>
+                </f:for>
+                <p class="help-block"><small>
+                        Deine noch vorhandenen Einladung-IDs, welche Du an Deine Freunde weitergeben darfst.
+                 </small></p>
+            </div>
+            </div>
+        </f:else>
+    </f:if>
+
+
+    <div class="control-group">
+      <label class="control-label" for="email">Email Adresse</label>
+      <div class="controls">
+        <mage:form.textfield type="email" tabindex="10" property="email" value="{feUser.email}"
+            class="input-medium" id="email" placeholder="John@Doe.com"/>
+            <span class="help-inline"><i class="icon-asterisk"></i></span>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" for="userPass">Passwort</label>
+      <div class="controls">
+        <mage:form.password property="password" tabindex="20" value="" id="userPass" class="input-medium aTooltip"
+         title="Mindestens 6 Zeichen a-z0-9 und ein Sonderzeichen"/>
+        <br/>
+        <mage:form.password name="password2" tabindex="30" value="" id="userPass2" class="input-medium aTooltip"
+         title="Mindestens 6 Zeichen a-z0-9 und ein Sonderzeichen"/>
+        <f:if condition="{isCreate}">
+            <span class="help-inline"><i class="icon-asterisk"></i></span>
+        </f:if>
+        <p class="help-block"><small>Das Passwort soll eine Mindestlänge von 6 Zeichen haben.</small></p>
+
+        <f:form.hidden id="rsa_n" name="n" value="{keyPair.PublicKeyModulus}"/>
+        <f:form.hidden id="rsa_e" name="e" value="{keyPair.Exponent}"/>
+
+      </div>
+    </div>
+
+<div class="proAccountRegister hide">
+
+    <div class="control-group highlight">
+      <label class="control-label" for="title">Anrede</label>
+      <div class="controls">
+        <mage:form.textfield property="title" tabindex="71" id="title" value="{feUser.title}"
+            class="input-medium" placeholder="Anrede" />
+      </div>
+    </div>
+
+    <div class="control-group highlight">
+      <label class="control-label" for="firstName">Vorname</label>
+      <div class="controls">
+        <mage:form.textfield property="firstName" tabindex="60" id="firstName" value="{feUser.firstName}"
+            class="input-medium" placeholder="Vorname"/>
+      </div>
+    </div>
+
+    <div class="control-group highlight">
+      <label class="control-label" for="lastName">Nachname</label>
+      <div class="controls">
+        <mage:form.textfield property="lastName" tabindex="70" id="lastName" value="{feUser.lastName}"
+            class="input-medium" placeholder="Nachname"/>
+      </div>
+    </div>
+
+    <div class="control-group highlight">
+      <label class="control-label" for="company">Firma</label>
+      <div class="controls">
+        <mage:form.textfield property="company" tabindex="90" id="company" value="{feUser.company}"
+            class="input-medium" placeholder="Firma" />
+      </div>
+    </div>
+
+</div>
+
+
+  </div><!--/span4 end -->
+  <div class="span4">
+
+    <div class="control-group">
+      <label class="control-label" for="title">User ID</label>
+      <div class="controls">
+          <strong style="padding-top: 0.3em; display: block;">{feUser.uidCrc32}</strong>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" for="namespace">Namespace</label>
+      <div class="controls">
+        <mage:form.textfield property="namespace" tabindex="40" id="namespace" value="{feUser.namespace}"
+            class="input-medium" placeholder="Extension Namespace"/>
+      </div>
+    </div>
+
+
+    <div class="control-group">
+      <label class="control-label" for="usergroup">Konto Typ</label>
+      <div class="controls text">
+
+        <mage:form.select
+                       property="usergroup"
+                       options="{userGroups}"
+                       optionValueField="uid"
+                       optionLabelField="title"
+                       id="usergroup"
+                       value="{feUser.usergroup}"
+                       class="input-medium proAccountRegister" />
+
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" for="endtime">Datum Kontolöschung</label>
+      <div class="controls">
+        <mage:form.textfield name="humanendtime" id="endtime" value="{feUser.humanendtime}"
+            class="input-medium multiLangDate" placeholder="TT/MM/JJJJ"/>
+        <p class="help-block"><small>Ein Datum in der Zukunft, an welchem Dein Konto automatisch gelöscht wird.</small></p>
+      </div>
+    </div>
+
+
+<div class="proAccountRegister hide">
+
+    <div class="control-group highlight">
+      <label class="control-label" for="address">Adresse</label>
+      <div class="controls">
+        <mage:form.textarea property="address" tabindex="100" id="address" value="{feUser.address}"
+            class="input-medium" rows="3" cols="10"/>
+      </div>
+    </div>
+
+    <div class="control-group highlight">
+      <label class="control-label" for="zip">Postleitzahl</label>
+      <div class="controls">
+        <mage:form.textfield property="zip" tabindex="110" id="zip" value="{feUser.zip}"
+            class="input-medium" placeholder="Postleitzahl"/>
+      </div>
+    </div>
+
+    <div class="control-group highlight">
+      <label class="control-label" for="city">Stadt</label>
+      <div class="controls">
+        <mage:form.textfield property="city" tabindex="120" id="city" value="{feUser.city}"
+            class="input-medium" placeholder="Stadt"/>
+      </div>
+    </div>
+
+    <div class="control-group highlight">
+      <label class="control-label" for="country">Land</label>
+      <div class="controls">
+        <f:form.select property="country" tabindex="130" options="{countries}" id="country" value="{feUser.country}"
+            class="input-medium" />
+      </div>
+    </div>
+</div>
+
+
+  </div><!--/span4 end -->
+
+</div>
+
+  </fieldset>
+

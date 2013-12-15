@@ -1,0 +1,170 @@
+{namespace mage=Tx_Magenerator_ViewHelpers}
+<f:layout name="Generator" />
+
+<f:section name="main">
+
+<f:flashMessages />
+
+
+	<f:render partial="General/headerDesc" arguments="{key:'common'}" />
+
+	<f:render partial="General/alert" />
+
+
+	<f:form class="form-horizontal generatorForm" controller="GCommon" action="save" noCache="1" noCacheHash="1" pageType="510">
+
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="#tab1" data-toggle="tab">Allgemeines</a></li>
+    <li><a href="#tab2" data-toggle="tab">Abhaengigkeiten</a></li>
+    <li><a href="#tab3" data-toggle="tab">Konflikte</a></li>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane active" id="tab1">
+
+		<div class="control-group">
+			<label class="control-label" for="mversion">Magento Version</label>
+			<div class="controls">
+				<f:form.select id="mversion" name="mageversion" options="{mageVersionAll}" value="{mageversion}"/>
+				<p class="help-block">Waehle hier die Magento Version aus, fuer welche die Extension kompatible sein soll.</p>
+			</div>
+		</div>
+
+		<div class="control-group">
+			<label class="control-label" for="version">Version</label>
+			<div class="controls">
+				<mage:form.textfield class="input-xlarge aTooltip requiredVersionNo removeCharsVersion" title="Erlaubte Zeichen sind 0-9 und der Punkt." name="version" id="version" value="{version}" placeholder="0.0.1" minlength="3"/>
+				<p class="help-block">Mit welcher Versionsnummer moechtest Du denn starten?</p>
+			</div>
+		</div>
+
+		<div class="control-group">
+			<label class="control-label" for="namespace">Namespace</label>
+			<div class="controls">
+
+                <mage:form.textfield class="input-xlarge aTooltip required removeChars" title="Erlaubte Zeichen sind a-z, A-Z und 0-9"
+                name="namespace" id="namespace"
+                value="{namespace}"
+                placeholder="Namespace"/>
+
+				<p class="help-block">Dein Namespace unter welchem alle Extensions erscheinen sollen.</p>
+			</div>
+		</div>
+
+		<div class="control-group">
+			<label class="control-label" for="extname">Extension Name</label>
+			<div class="controls">
+				<mage:form.textfield class="input-xlarge aTooltip required removeChars" title="Erlaubte Zeichen sind a-z, A-Z und 0-9"
+					name="extname" id="extname" value="{extname}" placeholder="Extension Name"/>
+				<p class="help-block">Der Name Deiner neuen Extension!</p>
+			</div>
+		</div>
+
+		<div class="control-group">
+			<label class="control-label" for="mactive">Aktiv</label>
+			<div class="controls">
+              <label class="checkbox inline">
+				<f:form.checkbox name="active" id="mactive" value="1" checked="{active}==1"/> Ja
+              </label>
+				<p class="help-block">Soll deine Extension beim Start gleich aktiv sein?</p>
+            </div>
+		</div>
+
+
+		<div class="control-group">
+			<label class="control-label" for="codepool">Codepool</label>
+			<div class="controls">
+				<f:form.select id="codepool" name="codepool" value="{codepool}" options="{codepools}"/>
+				<p class="help-block">In welchem Codepool soll deine Extension eingefuegt werden?</p>
+            </div>
+
+		</div>
+
+    </div><!-- end tab1 -->
+    <div class="tab-pane" id="tab2">
+
+		<div class="control-group">
+			<label class="control-label" for="dependsCustomExt">Eigene Extensions</label>
+			<div class="controls docs-input-sizes">
+				<mage:form.textarea class="input-xlarge aTooltip removeChars" title="Erlaubte Zeichen sind a-z, A-Z, 0-9 und _"
+					name="dependsCustomExt" id="dependsCustomExt" value="{dependsCustomExt}" rows="5" cols="50" />
+				<p class="help-block">Von welchen eigenen Extensions ist deine neue Extension abhaengig?
+					Trage diese hier ein und trenne mit einem Zeilenumbruch. [Namespace]_[Name]</p>
+            </div>
+
+		</div>
+
+		<div class="control-group">
+			<label class="control-label" for="uns_dependsSysExtNS">System Extensions</label>
+			<div class="controls">
+
+				<mage:form.select class="input-medium pull-left LoadSysExtName"  additionalAttributes="{data-target:'uns_dependsSysExtName'}" id="uns_dependsSysExtNS" name="uns_dependsSysExtNS"
+								  options="{dependsNs}" optionValueField="uid" optionLabelField="namespace"/>
+
+				<div class="input-append uns_dependsSysExtName hide pull-left">
+					<f:form.select class="input-medium" style="margin-left:1em;" id="uns_dependsSysExtName" name="uns_dependsSysExtName" options="{}"/>
+					<a class="btn addTwoSelectsToSelected" data-target="selectedSysExt" data-ens="uns_dependsSysExtNS" data-ename="uns_dependsSysExtName"><i class="icon-plus"></i></a>
+				</div>
+
+				<f:link.action controller="GCommon" action="ajaxExtNames" arguments="{uid:123456789}" pageType="510" class="ajaxExtNamesFormHref hide"></f:link.action>
+
+
+            </div>
+		</div>
+
+		<div class="control-group">
+			<label class="control-label" for="selectedSysExt">&nbsp;</label>
+			<div class="controls">
+				<f:form.select class="input-xlarge" multiple="multiple" size="5" id="selectedSysExt" name="selectedSysExt"
+					options="{selectedSysExt}" />
+				<a class="btn removeFromSelected" data-target="selectedSysExt"><i class="icon-minus"></i></a>
+            </div>
+		</div>
+
+    </div><!-- end tab2 -->
+
+
+    <div class="tab-pane" id="tab3">
+
+		<div class="control-group">
+			<label class="control-label" for="deactivateCustomExt">Eigene Extensions</label>
+			<div class="controls docs-input-sizes">
+				<mage:form.textarea class="input-xlarge aTooltip removeChars" title="Erlaubte Zeichen sind a-z, A-Z, 0-9 und _"
+					name="deactivateCustomExt" id="deactivateCustomExt" value="{deactivateCustomExt}" rows="5" cols="50" />
+				<p class="help-block">Welche eigenen Extensions sollen deaktiviert werden?
+					Trage diese hier ein und trenne mit einem Zeilenumbruch. [Namespace]_[Name]</p>
+            </div>
+
+		</div>
+
+		<div class="control-group">
+			<label class="control-label" for="uns_deactivateSysExtNS">System Extensions</label>
+			<div class="controls">
+
+				<mage:form.select class="input-medium pull-left LoadSysExtName" additionalAttributes="{data-target:'uns_deactivateSysExtName'}"  id="uns_deactivateSysExtNS" name="uns_deactivateSysExtNS"
+								  options="{dependsNs}" optionValueField="uid" optionLabelField="namespace"/>
+
+				<div class="input-append uns_deactivateSysExtName hide pull-left">
+					<f:form.select class="input-medium" style="margin-left:1em;" id="uns_deactivateSysExtName" name="uns_deactivateSysExtName" options="{}"/>
+                    <a class="btn addTwoSelectsToSelected" data-target="selectedDeactivatedSysExt" data-ens="uns_deactivateSysExtNS" data-ename="uns_deactivateSysExtName"><i class="icon-plus"></i></a>
+
+				</div>
+            </div>
+		</div>
+
+		<div class="control-group">
+			<label class="control-label" for="selectedDeactivatedSysExt">&nbsp;</label>
+			<div class="controls">
+				<f:form.select class="input-xlarge" multiple="multiple" size="5" id="selectedDeactivatedSysExt" name="selectedDeactivatedSysExt" options="{selectedDeactivatedSysExt}"/>
+                <a class="btn removeFromSelected" data-target="selectedDeactivatedSysExt"><i class="icon-minus"></i></a>
+            </div>
+		</div>
+
+    </div><!-- end tab3 -->
+
+  </div>
+
+	<f:render partial="General/formActions" arguments="{formClassId:'form.generatorForm'}" />
+
+	</f:form>
+
+</f:section>

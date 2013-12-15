@@ -1,0 +1,43 @@
+=== Magento Module Options ===
+
+== Cronjobs ==
+
+See ext CatalogRule for more details
+
+{{{
+<config>
+    <crontab>
+        <jobs>
+            <catalogrule_apply_all>
+                <schedule>
+                    <cron_expr>0 1 * * *</cron_expr>
+                </schedule>
+                <run>
+                    <model>catalogrule/observer::dailyCatalogUpdate</model>
+                </run>
+            </catalogrule_apply_all>
+        </jobs>
+        <events>
+            ....
+        </events>
+    </crontab>
+</config>
+}}}
+
+== Observer ==
+
+Can be placed anywhere
+
+see example CatalogRules where a lot of events are defined for a specific area
+
+config/global/events
+
+config/frontend/events
+
+config/adminhtml/events
+
+config/crontab/events
+
+== Custom Sales Order Status ==
+
+http://blog.baobaz.com/en/tag/magento-state-and-status

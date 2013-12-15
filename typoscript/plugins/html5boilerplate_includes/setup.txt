@@ -1,0 +1,58 @@
+### Includes - setup ###
+### HTML5BOILERPLATE ###
+
+# Include CSS files
+page.includeCSS >
+
+page.headerData.143 = TEXT
+# Modernizr 2
+page.headerData.143.value (
+    <link rel="me"          href="https://plus.google.com/109344723659834198041" />
+    <link rel="publisher"   href="https://plus.google.com/109344723659834198041" />
+
+    <link href='http://fonts.googleapis.com/css?family=PT+Serif+Caption' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="fileadmin/magenerator/css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="fileadmin/magenerator/fancybox/jquery.fancybox.css"/>
+	<link rel="stylesheet" href="fileadmin/magenerator/css/magenerator.css"/>
+
+	<link rel="alternate" type="application/rss+xml" title="MageNerator.net News RSS" href="/news/rss20.xml">
+	<link rel="apple-touch-icon" href="/fileadmin/magenerator/apple-touch-icon.png" />
+	<link rel="apple-touch-icon" sizes="72x72" href="/fileadmin/magenerator/apple-touch-icon-72x72-precomposed.png" />
+	<link rel="apple-touch-icon" sizes="114x114" href="/fileadmin/magenerator/apple-touch-icon-114x114-precomposed.png" />
+)
+
+
+# Include Modernizr as the last script in the header
+page.headerData.200 = TEXT
+# Modernizr 2
+page.headerData.200.value = <script src="fileadmin/magenerator/js/modernizr.min.js"></script>
+
+# Include jQuery from Google Libraries API
+page.includeJSFooterlibs >
+
+# https://developers.google.com/speed/libraries/devguide
+# Include main js file
+page.includeJSFooter {
+  main = fileadmin/magenerator/fancybox/jquery.fancybox.pack.js
+  130 = fileadmin/magenerator/js/bootstrap.min.js
+  140 = fileadmin/magenerator/js/socialshareprivacy/jquery.socialshareprivacy.min.js
+  160 = fileadmin/magenerator/js/plugins.org.js
+  170 = fileadmin/magenerator/js/script.org.js
+}
+
+[globalString = IENV:HTTP_HOST=magenerator.net]
+    page.includeJSFooter.130 >
+    page.includeJSFooter.140 >
+    page.includeJSFooter.160 >
+    page.includeJSFooter.170 >
+    page.includeJSFooter.180 = fileadmin/magenerator/js/combined.min.js
+[global]
+
+# Insert a PNG fix for IE6 and less
+#page.footerData.10 = TEXT
+#page.footerData.10.value(
+#	<!--[if lt IE 7 ]>
+#		<script src="typo3conf/ext/html5boilerplate/res/js/libs/dd_belatedpng.js"></script>
+#		<script> DD_belatedPNG.fix('img, .png_bg'); //fix any <img> or .png_bg background-images </script>
+#	<![endif]-->
+#)

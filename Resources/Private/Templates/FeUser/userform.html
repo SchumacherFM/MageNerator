@@ -1,0 +1,54 @@
+{namespace mage=Tx_Magenerator_ViewHelpers}
+<f:layout name="FeUser" />
+
+<f:section name="main">
+
+
+<div class="MageAjaxContainer">
+
+    <f:flashMessages />
+
+	<f:render partial="General/alert" />
+
+    <f:render partial="formErrors" arguments="{for: 'feUser'}" />
+
+    <f:form object="{feUser}" objectName="feUser" class="form-horizontal" id="mageUserForm"
+        controller="FeUser" action="save" noCache="1" noCacheHash="1" pageType="510">
+        <f:form.hidden name="ftype" value="{formTypeAction}" />
+
+        <f:render partial="FeUser/Edit"
+           arguments="{feUser:feUser,userGroups:userGroups,countries:countries,keyPair:keyPair,isCreate:isCreate}" />
+
+        <f:if condition="{isCreate}">
+            <div class="offset1">
+                <label class="checkbox inline" for="gtc">
+                    <f:form.checkbox id="gtc" name="gtc" value="1" class="required"/>
+                    Ich habe die <a href="/fileadmin/magenerator/tc/tos_de.pdf" target="_blank"> Dienstleistungsbedingungen</a>
+                    und die <a href="/fileadmin/magenerator/tc/privacy_de.pdf" target="_blank">Datenschutzbestimmungen</a> gelesen!
+                </label>
+            </div>
+            <div class="offset1">
+                <p><small>Alle Daten können später geändert bzw. ergänzt werden!</small></p>
+            </div>
+        </f:if>
+
+        <div class="form-actions span6">
+            <button tabindex="80" type="button" class="btn btn-primary ajaxUserFormSubmit">
+                <f:if condition="{isCreate}">
+                    <f:then>
+                        Registrieren
+                    </f:then>
+                    <f:else>
+                        Profil speichern
+                    </f:else>
+                </f:if>
+            </button>
+        </div>
+    </f:form>
+
+    <img class="mageUserForm_ajax hide" src="/fileadmin/magenerator/img/ajax.gif"
+         alt="ajax loading" style="margin:0 auto;" />
+
+</div>
+
+</f:section>

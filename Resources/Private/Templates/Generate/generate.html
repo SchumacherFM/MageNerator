@@ -1,0 +1,29 @@
+{namespace mage=Tx_Magenerator_ViewHelpers}
+<f:layout name="Generator" />
+
+<f:section name="main">
+
+    <f:flashMessages />
+
+	<f:render partial="General/headerDesc" arguments="{key:'generated'}" />
+
+
+    <p>
+        Du kannst Sie <a href="//{httpHost}{downloadURL}" target="_blank"><i class="icon-download-alt"></i> hier</a> herunterladen.
+    </p>
+
+    <p>
+        URL: <code>//{httpHost}{downloadURL}</code>
+    </p>
+
+    <h3> Wie installiere ich diese nun?    </h3>
+    <p>
+        Eine Möglichkeit ist: Du ladest den Tarball in Dein Webroot Verzeichnis und entpackst ihn.
+    </p>
+
+    <h3> Wie lange bleibt der Tarball auf dem Server?   </h3>
+    <p> <code>find ./typo3temp/mage/ -type f -mtime +3d -delete</code> Also drei Tage. Diesen Wert haben wir uns mal aus den Fingern gezogen.
+        Die Konfiguration Deiner Extension bleibt natürlich immer erhalten in der Datenbank.
+    </p>
+
+</f:section>

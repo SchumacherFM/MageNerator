@@ -1,0 +1,84 @@
+config.tx_extbase {
+    features.rewrittenPropertyMapper = 1
+    persistence{
+        storagePid = 5
+        enableAutomaticCacheClearing = 1
+        updateReferenceIndex = 0
+        classes {
+            Tx_Magenerator_Domain_Model_FeUser {
+                mapping {
+                    tableName = fe_users
+                    columns {
+                        lockToDomain.mapOnProperty = lockToDomain
+                    }
+                }
+            }
+#            Tx_Extbase_Domain_Model_FrontendUserGroup {
+#                mapping {
+#                    tableName = fe_groups
+#                    columns {
+#                        lockToDomain.mapOnProperty = lockToDomain
+#                    }
+#                }
+#            }
+        }
+    }
+}
+
+plugin.tx_magenerator {
+	view {
+		templateRootPath = {$plugin.tx_magenerator.view.templateRootPath}
+		partialRootPath = {$plugin.tx_magenerator.view.partialRootPath}
+		layoutRootPath = {$plugin.tx_magenerator.view.layoutRootPath}
+	}
+	persistence {
+		storagePid = {$plugin.tx_magenerator.persistence.storagePid}
+	}
+
+	settings {
+		# magento templates
+		mageTemplatePath = EXT:magenerator/Resources/Private/CodeTemplates/
+
+		# also used as folder name in folder CodeTemplates
+		mageversion {
+            # cannot use dot in version numbers due to TS syntax
+            1_5 = CE 1.3 - 1.5 + EE 1.7 - 1.8
+            1_6 = CE 1.6 - 1.7 + EE 1.9 - 1.12
+            2_0 = CE+EE 2.0
+        }
+
+        invites {
+            perUser = 2
+            generateFromChars = 0123456789ABCDEFGHJKLMNPQRSTUVWXYZ
+            length = 10
+        }
+
+        # string name of the site used in subject
+        sitename = MageNerator.net
+
+        userEmail {
+            fromName = MageNerator.net
+            fromEmail = webmaster [AT] MageNerator.net
+
+            replyName = MageNerator.net
+            replyEmail = webmaster [AT] MageNerator.net
+
+            returnPath = webmaster [AT] MageNerator.net
+        }
+
+        adminEmail {
+            toName = MageNerator.net (Cyrill)
+            toEmail = schumacher.cyrill [AT] gmail.com
+
+            fromName = MageNerator.net
+            fromEmail = webmaster [AT] MageNerator.net
+
+            replyName = MageNerator.net
+            replyEmail = no-reply [AT] MageNerator.net
+
+            returnPath = no-reply [AT] MageNerator.net
+        }
+
+
+	} #end settings
+}

@@ -1,0 +1,61 @@
+instead of the bad constructor converting a xml element to an array
+we can do the following
+
+Varien_Simplexml_Config
+{{{
+#!php
+
+
+    /**
+     * Create node by $path and set its value.
+     *
+     * @param string $path separated by slashes
+     * @param string $value
+     * @param boolean $overwrite
+     * @return Varien_Simplexml_Config
+     */
+    public function setNode($path, $value, $overwrite=true)
+    {
+        $xml = $this->_xml->setNode($path, $value, $overwrite);
+        return $this;
+    }
+
+
+
+    /**
+     * Returns node found by the $path
+     *
+     * @see     Varien_Simplexml_Element::descend
+     * @param   string $path
+     * @return  Varien_Simplexml_Element
+     */
+    public function getNode($path=null)
+    {
+        if (!$this->_xml instanceof Varien_Simplexml_Element) {
+            return false;
+        } elseif ($path === null) {
+            return $this->_xml;
+        } else {
+            return $this->_xml->descend($path);
+        }
+    }
+
+    /**
+     * Returns nodes found by xpath expression
+     *
+     * @param string $xpath
+     * @return array
+     */
+    public function getXpath($xpath)
+    {
+        if (empty($this->_xml)) {
+            return false;
+        }
+
+        if (!$result = @$this->_xml->xpath($xpath)) {
+            return false;
+        }
+
+        return $result;
+    }
+}}}

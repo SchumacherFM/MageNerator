@@ -1,0 +1,78 @@
+{namespace n=Tx_News_ViewHelpers}
+
+<article class="article articletype-{newsItem.type}{f:if(condition: newsItem.istopnews, then: ' topnews')}">
+    <h3>
+        <n:link newsItem="{newsItem}" settings="{settings}">
+            {newsItem.title}
+        </n:link>
+    </h3>
+
+
+	<f:if condition="{newsItem.media}">
+		<!-- media preview element -->
+		<f:then>
+		<div class="news-img-wrap">
+			<n:link newsItem="{newsItem}" settings="{settings}">
+				<f:if condition="{newsItem.mediaPreviews}">
+					<f:then>
+						<f:alias map="{mediaElement: newsItem.mediaPreviews.0}">
+							<f:if condition="{mediaElement.type} == 0">
+								<f:image
+									src="uploads/tx_news/{mediaElement.image}"
+									title="{mediaElement.title}"
+									alt="{mediaElement.alt}"
+									maxWidth="{settings.list.media.image.maxWidth}"
+									maxHeight="{settings.list.media.image.maxHeight}"
+								/>
+							</f:if>
+							<f:if condition="{mediaElement.type} == 1">
+								<f:render partial="Detail/MediaVideo" arguments="{mediaElement: mediaElement}"/>
+							</f:if>
+							<f:if condition="{mediaElement.type} == 2">
+								<f:render partial="Detail/MediaHtml" arguments="{mediaElement: mediaElement}"/>
+							</f:if>
+							<f:if condition="{mediaElement.type} == 3">
+								<n:format.dam as="dam" uid="{mediaElement.uid}">
+									<f:image src="{dam.file_path}{dam.file_name}" title="{dam.title}"  alt="{dam.alt_text}" maxWidth="{settings.detail.media.image.maxWidth}" />
+								</n:format.dam>
+							</f:if>
+						</f:alias>
+					</f:then>
+					<f:else>
+					</f:else>
+				</f:if>
+			</n:link>
+		</div>
+		</f:then>
+		<f:else>
+
+		</f:else>
+	</f:if>
+
+
+    <blockquote>
+        <p>{newsItem.teaser}</p>
+        <small>
+
+
+				<f:format.date format="d.m.Y">{newsItem.datetime}</f:format.date>
+
+
+			<!-- first category -->
+			<f:if condition="{newsItem.firstCategory}">
+				<h6>{newsItem.firstCategory.title}</h6>
+			</f:if>
+
+			<!-- author -->
+			<f:if condition="{newsItem.author}">
+                <a href="{newsItem.authorEmail}" target="_blank">
+					<f:translate key="author" arguments="{0:newsItem.author}"/>
+                </a>
+			</f:if>
+
+
+        </small>
+    </blockquote>
+
+
+</article>
